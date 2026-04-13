@@ -1,5 +1,5 @@
 <?php
-// Lê o arquivo e exibe exatamente como ele é
+
 if(file_exists("perguntas.txt")) {
  echo "<h1>Conteúdo do Arquivo TXT:</h1>";
  echo "<pre>" . file_get_contents("perguntas.txt") . "</pre>";
