@@ -1,7 +1,6 @@
 <?php
 $arquivoUsuarios = "usuarios.txt";
 
-// --- LÓGICA DE EXCLUSÃO ---
 if (isset($_GET['excluir'])) {
 $id = $_GET['excluir'];
 $linhas = file($arquivoUsuarios);
@@ -10,12 +9,10 @@ file_put_contents($arquivoUsuarios, implode("", $linhas));
 header("Location: usuarios.php");
 }
 
-// --- LÓGICA DE SALVAMENTO ---
 if (isset($_POST['btn_salvar_user'])) {
 $nome = $_POST['nome'];
 $email = $_POST['email'];
-$senha = $_POST['senha']; // Em sistemas reais usa-se criptografia, aqui manteremos simples.
-
+$senha = $_POST['senha']; 
 $linhaUser = $nome . " | " . $email . " | " . $senha . PHP_EOL;
 
 if ($_POST['id_editar'] != "") {
@@ -28,7 +25,6 @@ file_put_contents($arquivoUsuarios, $linhaUser, FILE_APPEND);
 header("Location: usuarios.php");
 }
 
-// --- LÓGICA DE EDIÇÃO ---
 $n_edit = ""; $e_edit = ""; $s_edit = ""; $id_edit = "";
 if (isset($_GET['editar'])) {
 $id_edit = $_GET['editar'];
@@ -43,21 +39,12 @@ $s_edit = trim($colunas[2]);
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<title>Cadastro de Usuários - Sr. Water Falls</title>
-<style>
-body { font-family: sans-serif; background: #f4f7f6; padding: 20px; }
-.container { background: white; max-width: 500px; margin: auto; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-input { width: 100%; padding: 8px; margin: 5px 0 15px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-.btn { background: #28a745; color: white; border: none; padding: 10px; width: 100%; cursor: pointer; font-size: 16px; }
-.nav { margin-bottom: 20px; text-align: center; }
-.item-user { border-bottom: 1px solid #ddd; padding: 10px 0; }
-</style>
 </head>
 <body>
 
 <div class="nav">
-<a href="index.php">Ir para Perguntas</a> | <b>Cadastro de Usuários</b>
+ <a href="index.php">GERENCIAR PERGUNTAS</a>
+ <a href="usuarios.php" style="background: #28a745; padding: 5px 10px; border-radius: 3px;">CADASTRAR USUÁRIOS</a>
 </div>
 
 <div class="container">
@@ -75,7 +62,7 @@ input { width: 100%; padding: 8px; margin: 5px 0 15px 0; border: 1px solid #ccc;
 <label>Senha:</label>
 <input type="password" name="senha" value="<?php echo $s_edit; ?>" required>
 
-<button type="submit" name="btn_salvar_user" class="btn">Salvar Usuário</button>
+<button type="submit" name="btn_salvar_user" class="btn">SALVAR USUÁRIO</button>
 </form>
 
 <hr>
