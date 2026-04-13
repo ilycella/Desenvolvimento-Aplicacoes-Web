@@ -58,27 +58,7 @@ if (isset($_GET['editar'])) {
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
- <meta charset="UTF-8">
- <title>Sistema Sr. Water Falls</title>
- <style>
- body { font-family: sans-serif; background: #f0f0f0; padding: 20px; }
- .box { background: white; max-width: 600px; margin: auto; padding: 20px; border-radius: 8px; border: 1px solid #ccc; }
- .nav { background: #333; padding: 10px; margin-bottom: 20px; text-align: center; border-radius: 5px; }
- .nav a { color: white; text-decoration: none; font-weight: bold; margin: 0 10px; }
- input, select { width: 100%; padding: 8px; margin: 10px 0; display: block; box-sizing: border-box; }
- .btn { background: #0056b3; color: white; border: none; padding: 10px; width: 100%; cursor: pointer; }
- .card { border: 1px solid #ddd; padding: 10px; margin-top: 10px; border-left: 5px solid #0056b3; }
- .opcoes-multipla { background: #f9f9f9; padding: 10px; border: 1px dashed #ccc; }
- </style>
- <script>
- function alternarCampos() {
- var tipo = document.getElementById("tipo").value;
- document.getElementById("area-multipla").style.display = (tipo === "Multipla Escolha") ? "block" : "none";
- document.getElementById("area-texto").style.display = (tipo === "Texto Livre") ? "block" : "none";
- }
- </script>
 </head>
-<body onload="alternarCampos()">
 
  <div class="nav">
  <a href="index.php">GERENCIAR PERGUNTAS</a>
