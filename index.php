@@ -1,7 +1,6 @@
 <?php
 $arquivo = "perguntas.txt";
 
-// 7. EXCLUIR Pergunta e respostas
 if (isset($_GET['excluir'])) {
  $id = $_GET['excluir'];
  $linhas = file($arquivo);
@@ -13,13 +12,11 @@ if (isset($_GET['excluir'])) {
  exit;
 }
 
-// 1, 2, 3 e 4. CRIAR E ALTERAR (Múltipla e Texto)
 if (isset($_POST['btn_salvar'])) {
  $pergunta = $_POST['pergunta'];
  $tipo = $_POST['tipo'];
  
  if ($tipo == "Multipla Escolha") {
- // Garante que as 4 opções sejam salvas
  $res = $_POST['o1'].", ".$_POST['o2'].", ".$_POST['o3'].", ".$_POST['o4'];
  } else {
  $res = $_POST['resposta_texto'];
@@ -38,7 +35,6 @@ if (isset($_POST['btn_salvar'])) {
  exit;
 }
 
-// 6. LISTAR UMA Pergunta (para edição)
 $p_edit = ""; $t_edit = ""; $r_edit = ""; $id_edit = ""; $opts = ["","","",""];
 if (isset($_GET['editar'])) {
  $id_edit = $_GET['editar'];
